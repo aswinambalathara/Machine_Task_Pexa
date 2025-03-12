@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Modify User List in HTML</title>
+  </head>
+  <body>
+    <div id="user-list">
+      <ul>
+        <li>Alice</li>
+        <li>Bob</li>
+        <li>Charlie</li>
+      </ul>
+      <div>
+        <button onclick="addNewUser()">Add User</button>
+        <button onclick="removeFirstUser()">Remove User</button>
+      </div>
+    </div>
+
+    <script>
+      const userList = document.querySelector("#user-list ul");
+
+      function addNewUser() {
+        const newUser = document.createElement("li");
+        newUser.textContent = "David";
+        userList.appendChild(newUser);
+      }
+
+      function removeFirstUser() {
+        const firstUser = userList.querySelector("li");
+        if (firstUser) {
+          userList.removeChild(firstUser);
+        }
+      }
+    </script>
+    
+  </body>
+</html>
