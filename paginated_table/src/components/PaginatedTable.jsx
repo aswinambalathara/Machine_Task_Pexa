@@ -50,44 +50,47 @@ function PaginatedTable() {
             </select>
           </div>
         </div>
-        <table className="w-full mt-5 text-center mb-10">
-          <thead className="bg-cyan-500/30 ">
-            <tr>
-              <th>ID</th>
-              <th>Avatar</th>
-              <th>Name</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody className="h-auto">
-            {users.length > 0 ? (
-              users.map((user, index) => (
-                <tr
-                  key={user.id}
-                  className={`h-auto ${
-                    (index + 1) % 2 === 0 ? "bg-cyan-500" : "bg-cyan-600"
-                  }`}
-                >
-                  <td>{user.id}</td>
-                  <td>
-                    <img
-                      className="rounded-full mx-auto"
-                      src={user.avatar}
-                      alt="Avatar"
-                      width="50"
-                    />
-                  </td>
-                  <td>{`${user.first_name} ${user.last_name}`}</td>
-                  <td>{user.email}</td>
-                </tr>
-              ))
-            ) : (
+
+        <div className="w-full overflow-x-scroll mt-5 mb-10">
+          <table className="w-full text-center min-w-xl">
+            <thead className="bg-cyan-500/30 ">
               <tr>
-                <td>No Data Available</td>
+                <th>ID</th>
+                <th>Avatar</th>
+                <th>Name</th>
+                <th>Email</th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="h-auto">
+              {users.length > 0 ? (
+                users.map((user, index) => (
+                  <tr
+                    key={user.id}
+                    className={`h-auto ${
+                      (index + 1) % 2 === 0 ? "bg-cyan-500" : "bg-cyan-600"
+                    }`}
+                  >
+                    <td>{user.id}</td>
+                    <td>
+                      <img
+                        className="rounded-full mx-auto"
+                        src={user.avatar}
+                        alt="Avatar"
+                        width="50"
+                      />
+                    </td>
+                    <td>{`${user.first_name} ${user.last_name}`}</td>
+                    <td>{user.email}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td>No Data Available</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
 
         <div className="pagination flex gap-2 bg-zinc-200 absolute right-5 bottom-3">
           <button
